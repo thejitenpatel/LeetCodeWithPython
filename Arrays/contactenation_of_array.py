@@ -1,8 +1,4 @@
 from typing import List
-
-print("Hellow")
-
-
 class Solution:
     def getConcatenation(self, nums: List[int]) -> List[int]:
         return nums + nums
