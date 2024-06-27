@@ -17,6 +17,17 @@ class Solution:
 
         return answer
 
+    # with open("user.out", "w") as f:
+    #     a = 0
+    #     for case in map(loads, stdin):
+    #         if a == 0:
+    #             b = case
+    #             a += 1
+    #         else:
+    #             print(str(findDifference(b, case)), file=f)
+    #             a -= 1
+    # exit(0)
+
 
 solution = Solution()
 print(solution.findDifference([1, 2, 3, 3], [1, 1, 2, 2]))
