@@ -1,5 +1,10 @@
+from collections import Counter
+
+
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+        """
         if len(s) != len(t):
             return False
 
@@ -19,6 +24,7 @@ class Solution:
                 count_t[char] = 1
 
         return count_s == count_t
+        """
 
 
 sol = Solution()
