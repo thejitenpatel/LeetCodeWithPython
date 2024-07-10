@@ -3,13 +3,13 @@ class Solution:
         stack = []
 
         for char in s:
-            if char == "*":
+            if char is "*":
                 if stack:
                     stack.pop()
             else:
                 stack.append(char)
 
-        return ''.join(map(str, stack))
+        return ''.join(stack)
 
 
 sol = Solution()
