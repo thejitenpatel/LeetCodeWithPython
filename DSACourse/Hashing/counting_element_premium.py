@@ -3,6 +3,7 @@ from typing import List
 
 class Solution:
     def countElements(self, arr: List[int]) -> int:
+        # return len(set(Counter(s).values())) == 1
         num_set = set(arr)
         count = 0
         for num in arr:
