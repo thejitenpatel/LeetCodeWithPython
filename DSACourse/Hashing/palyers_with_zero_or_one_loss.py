@@ -4,21 +4,21 @@ from typing import List
 
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
-        lossers_count = [-1] * 100001
+        losses_count = [-1] * 100001
 
-        for winner, lossers in matches:
-            if lossers_count[winner] == -1:
-                lossers_count[winner] = 0
-            if lossers_count[lossers] == -1:
-                lossers_count[lossers] = 0
+        for winner, losser in matches:
+            if losses_count[winner] == -1:
+                losses_count[winner] = 0
+            if losses_count[losser] == -1:
+                losses_count[losser] = 1
             else:
-                lossers_count[lossers] += 1
+                losses_count[losser] += 1
         
         answer = [[], []]
         for i in range(100001):
-            if lossers_count[i] == 0:
+            if losses_count[i] == 0:
                 answer[0].append(i)
-            elif lossers_count[i] == 1:
+            elif losses_count[i] == 1:
                 answer[1].append(i)
 
         return answer
