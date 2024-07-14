@@ -6,8 +6,6 @@ class Solution:
         if len(ransomNote) > len(magazine):
             return False
         letters = Counter(magazine)
-        # ransome_counts = Counter(ransomNote)
-        # print(counts - ransome_counts)
         for char in ransomNote:
             if letters[char] <= 0:
                 return False
