@@ -33,43 +33,43 @@ All the integers in s are in the range[1, 300].
 
 class Solution:
     def decodeString(self, s: str) -> str:
-        # stack = []
-        # current_string = ""
-        # k = 0
+        stack = []
+        current_string = ""
+        k = 0
 
-        # for char in s:
-        #     if char.isdigit():
-        #         k = k * 10 + int(char)
-        #     elif char == '[':
-        #         stack.append((current_string, k))
-        #         current_string = ""
-        #         k = 0
-        #     elif char == ']':
-        #         prev_string, prev_k = stack.pop()
-        #         current_string = prev_string + current_string * prev_k
-        #     else:
-        #         current_string += char
+        for char in s:
+            if char.isdigit():
+                k = k * 10 + int(char)
+            elif char == '[':
+                stack.append((current_string, k))
+                current_string = ""
+                k = 0
+            elif char == ']':
+                prev_string, prev_k = stack.pop()
+                current_string = prev_string + current_string * prev_k
+            else:
+                current_string += char
 
-        # return current_string
-        def decode(index):
-            result = ""
-            k = 0
-            while index < len(s):
-                char = s[index]
-                if char.isdigit():
-                    k = k * 10 + int(char)
-                elif char == '[':
-                    substr, index = decode(index + 1)
-                    result += k * substr
-                    k = 0
-                elif char == ']':
-                    return result, index
-                else:
-                    result += char
-                index += 1
-            return result
+        return current_string
+        # def decode(index):
+        #     result = ""
+        #     k = 0
+        #     while index < len(s):
+        #         char = s[index]
+        #         if char.isdigit():
+        #             k = k * 10 + int(char)
+        #         elif char == '[':
+        #             substr, index = decode(index + 1)
+        #             result += k * substr
+        #             k = 0
+        #         elif char == ']':
+        #             return result, index
+        #         else:
+        #             result += char
+        #         index += 1
+        #     return result
 
-        return decode(0)
+        # return decode(0)
 
 
 sol = Solution()
